@@ -8,6 +8,20 @@ namespace Domain.Models.Response
 {
     public  class Response < T> 
     {
+
+        public bool Success { get; set; }
+        public string Message { get; set; }
+        public T Data { get; set; }
+
+        public Response(bool success, string message, T data)
+        {
+            Success = success;
+            Message = message;
+            Data = data;
+        }
+
+        
+
         public Response(string error, int statuscode = 400)
         {
             Erors = error;
@@ -23,5 +37,7 @@ namespace Domain.Models.Response
         public string Erors { get; set; }
         public T Result { get; set; }
     }
+
+
 }
 

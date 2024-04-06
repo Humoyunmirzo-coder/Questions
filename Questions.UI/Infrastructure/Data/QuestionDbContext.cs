@@ -19,6 +19,8 @@ namespace Infrastructure.Data
         public DbSet < Options> Options { get; set; }
         public DbSet < Questions> Questions { get; set; }
         public DbSet < User> Users { get; set; }
+
+
     }
 
     }

@@ -1,4 +1,6 @@
-﻿using Infrastructure.Data;
+﻿using Aplication.Services;
+using Infrastructure.Data;
+using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
@@ -15,7 +17,9 @@ namespace Infrastructure
     {
         public static void AddIfrastuctureServices(this IServiceCollection services, IConfiguration configuration)
         {
-         
+
+            services.AddScoped<IQuestionServices, IQuestionService>();
+
             services.AddDbContext<QuestionDbContext>(options =>
             options.UseNpgsql(configuration.GetConnectionString("DbConnection")));
 
