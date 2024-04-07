@@ -15,12 +15,12 @@ namespace Infrastructure
 {
     public static class ConfigurationService
     {
-        public static void AddIfrastuctureServices(this IServiceCollection services, IConfiguration configuration)
-        {
+        //public static void AddIfrastuctureServices(this IServiceCollection services, IConfiguration configuration)
+        //{
 
-            services.AddScoped<IQuestionServices, IQuestionService>();
+        //    services.AddScoped<IQuestionServices, IQuestionService>();
 
             
-        }
+        //}
     }
 }
