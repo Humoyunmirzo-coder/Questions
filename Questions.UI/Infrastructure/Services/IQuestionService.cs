@@ -11,14 +11,14 @@ namespace Infrastructure.Services
 {
     public class IQuestionService : IQuestionServiceses
     {
-      private readonly IQuestionServiceses _services;
+    
         private readonly QuestionDbContext _questionDbContext;
 
-        public IQuestionService(QuestionDbContext questionDbContext, IQuestionServiceses services)
+        public IQuestionService(QuestionDbContext questionDbContext)
         {
 
             _questionDbContext = questionDbContext;
-            _services = services;
+    
             
         }
 
