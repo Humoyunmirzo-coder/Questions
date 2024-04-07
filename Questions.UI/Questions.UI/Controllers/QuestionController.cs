@@ -1,34 +1,29 @@
 ﻿using Aplication.Services;
-using DocumentFormat.OpenXml.Drawing.Charts;
-using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using Domain.Models;
 using Domain.Models.Response;
 using Infrastructure.Data;
-using Infrastructure.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.Amqp.Framing;
 using Xceed.Words.NET;
 
 namespace Questions.UI.Controllers
 {
-    [Route("api/[controller]/[action]")]
     [ApiController]
+    [Route("api/[controller]/[action]")]
     public class QuestionController : ControllerBase
     {
         private readonly IQuestionServices _questionServices;
-        private readonly QuestionDbContext _questionDbContext;
+    
 
-        public QuestionController(IQuestionServices questionServices, QuestionDbContext questionDbContext)
+        public QuestionController(IQuestionServices questionServices)
         {
             _questionServices = questionServices;
-            _questionDbContext = questionDbContext;
+           
         }
 
         [HttpPost]
         [Route("create-docx")]
         public IActionResult CreateDocxFile([FromBody] DocxFile data)
-        { 
+        {
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "GeneratedDoc.docx");
 
             using (var doc = DocX.Create(filePath))
@@ -49,6 +44,7 @@ namespace Questions.UI.Controllers
             return Ok(new { message = "Document successfully created", filePath });
         }
 
+        [HttpPost]
         public async Task<IActionResult> CreateQuestion([FromQuery] Domain.Models.Questions questions)
         {
             var questionsList = new List<Domain.Models.Questions> { questions };
@@ -72,7 +68,7 @@ namespace Questions.UI.Controllers
 
                 foreach (var option in questions.Options)
                 {
-                    var optionParagraph = doc.InsertParagraph(option.Option); 
+                    var optionParagraph = doc.InsertParagraph(option.Option);
                     optionParagraph.FontSize(12).SpacingAfter(2);
                 }
                 doc.Save();
@@ -81,7 +77,7 @@ namespace Questions.UI.Controllers
         }
 
         [HttpPost("CreateQuestion")]
-        public async Task<IActionResult> CreateQuestion([FromBody] List<Domain.Models.Questions> questions)
+        public async Task<IActionResult> GetAllQuestion([FromBody] List<Domain.Models.Questions> questions)
         {
             if (questions == null || !questions.Any())
             {
@@ -95,19 +91,18 @@ namespace Questions.UI.Controllers
                 question.Options = question.Options.OrderBy(a => rng.Next()).ToList();
             }
 
-            _questionDbContext.Questions.AddRange(shuffledQuestions);
-            await _questionDbContext.SaveChangesAsync();
-
+            var response = await _questionServices.CreateQuestion(shuffledQuestions);
+  
             return Ok(new Response<List<Domain.Models.Questions>>(true, "Savollar muvaffaqiyatli yaratildi va saqlandi", shuffledQuestions));
         }
+
+
+
+
+
+
+
     }
-
-
-
-
-
-
-
 
 }
 
