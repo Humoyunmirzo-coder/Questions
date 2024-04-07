@@ -15,6 +15,7 @@ namespace Infrastructure.Data
         {
         }
 
+
         public DbSet < DocxFile> DocxFiles { get; set; }
         public DbSet < Options> Options { get; set; }
         public DbSet < Questions> Questions { get; set; }

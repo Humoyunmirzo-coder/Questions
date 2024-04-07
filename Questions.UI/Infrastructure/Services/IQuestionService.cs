@@ -100,7 +100,7 @@ namespace Infrastructure.Services
 
         private List<DocxFile> GetAllDocxFilesFromStorage()
         {
-            var filesDirectory = @"C:\Users\humoy\OneDrive\Hujjatlar\Graphics\Filter Library";
+            var filesDirectory = @"D:\hp";
             var docxFiles = Directory.GetFiles(filesDirectory, "*.docx", SearchOption.AllDirectories)
                                      .Select(filePath => new DocxFile { Path = filePath })
                                      .ToList();

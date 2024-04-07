@@ -20,9 +20,7 @@ namespace Infrastructure
 
             services.AddScoped<IQuestionServices, IQuestionService>();
 
-            services.AddDbContext<QuestionDbContext>(options =>
-            options.UseNpgsql(configuration.GetConnectionString("DbConnection")));
-
+            
         }
     }
 }
