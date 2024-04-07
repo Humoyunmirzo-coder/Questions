@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddScoped<ITestService, ITestServices>();
 builder.Services.AddDbContext<TestDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("ConnetionString")));
+    options.UseNpgsql("Host= ::1; Port=5432 ;Database = TestRandDB; UserId = postgres; Password = 2244;"));
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

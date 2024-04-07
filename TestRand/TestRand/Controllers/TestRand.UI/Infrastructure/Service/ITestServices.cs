@@ -42,7 +42,7 @@ namespace Infrastructure.Service
                 doc.Save();
             }
 
-            return await new Response<DocxFile>(true, $"{docxFile.Path}.docx fayli muvaffaqiyatli yaratildi", docxFile);
+            return null;   // await new Response<DocxFile>(true, $"{docxFile.Path}.docx fayli muvaffaqiyatli yaratildi", docxFile);
         }
 
         public Task<Response<List<Questions>>> CreateQuestion(List<Questions> questions)
