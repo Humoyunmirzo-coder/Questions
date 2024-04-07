@@ -13,14 +13,5 @@ using System.Threading.Tasks;
 
 namespace Infrastructure
 {
-    public static class ConfigurationService
-    {
-        //public static void AddIfrastuctureServices(this IServiceCollection services, IConfiguration configuration)
-        //{
 
-        //    services.AddScoped<IQuestionServices, IQuestionService>();
-
-            
-        //}
-    }
 }

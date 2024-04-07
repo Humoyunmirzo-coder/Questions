@@ -6,15 +6,17 @@ using System.Configuration;
 using Infrastructure;
 using Aplication.Services;
 using Infrastructure.Services;
+using Domain.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
 
-builder.Services.AddScoped<IQuestionServices, IQuestionService>();
+builder.Services.AddScoped<IQuestionServiceses, IQuestionService>();
 builder.Services.AddDbContext<QuestionDbContext>(options =>
-        options.UseNpgsql( "Host= ::1; Port=5432 ;Database = QuestionDB; UserId = postgres; Password = 2244;"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("ConnetionString")));
+
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

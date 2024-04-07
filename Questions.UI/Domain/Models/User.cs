@@ -9,7 +9,7 @@ namespace Domain.Models
 {
     public  class User
     {
-        [Key]
+
         public int Id { get; set; }
          public int DocxId { get; set; }
          public DocxFile DocxFile  { get; set; }

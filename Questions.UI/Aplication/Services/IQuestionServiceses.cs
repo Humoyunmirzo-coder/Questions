@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xceed.Words.NET;
-using static Aplication.Services.IQuestionServices;
+
 
 namespace Aplication.Services
 {
-    public  interface IQuestionServices
+    public  interface IQuestionServiceses
     {
         Task<Response<List<Questions>>> CreateQuestion (List<Questions> questions) ;
         Task < Response< DocxFile>>  CreateDocxFile (  DocxFile docxFile ) ;
@@ -27,7 +27,7 @@ namespace Aplication.Services
         {
             public async Task<string> GenerateDocxFileAsync(DocxFile data)
             {
-                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "GeneratedDoc.docx");
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "GeneratedDoc.docx");  
 
                 using (var doc = DocX.Create(filePath))
                 {

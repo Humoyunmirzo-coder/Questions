@@ -11,10 +11,10 @@ namespace Questions.UI.Controllers
     [Route("api/[controller]/[action]")]
     public class QuestionController : ControllerBase
     {
-        private readonly IQuestionServices _questionServices;
+        private readonly IQuestionServiceses _questionServices;
     
 
-        public QuestionController(IQuestionServices questionServices)
+        public QuestionController(IQuestionServiceses questionServices)
         {
             _questionServices = questionServices;
            

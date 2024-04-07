@@ -9,15 +9,16 @@ using Xceed.Words.NET;
 
 namespace Infrastructure.Services
 {
-    public class IQuestionService : IQuestionServices
+    public class IQuestionService : IQuestionServiceses
     {
-        private readonly IQuestionService _questionService;
+      private readonly IQuestionServiceses _services;
         private readonly QuestionDbContext _questionDbContext;
 
-        public IQuestionService(IQuestionService questionService, QuestionDbContext questionDbContext)
+        public IQuestionService(QuestionDbContext questionDbContext, IQuestionServiceses services)
         {
-            _questionService = questionService;
+
             _questionDbContext = questionDbContext;
+            _services = services;
         }
 
         public async Task<Response<DocxFile>> CreateDocxFile(DocxFile docxFile)
