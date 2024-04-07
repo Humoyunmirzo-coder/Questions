@@ -17,10 +17,7 @@ namespace Aplication.Services
         Task<Response<List<Questions>>> GetAllQuestion () ;
         Task < Response< List< DocxFile>>>  GetALLDocxFile(  ) ;
 
-        public interface IDocxService
-        {
-            Task<string> GenerateDocxFileAsync(Questions data);
-        }
+        
 
 
         public class DocxService 

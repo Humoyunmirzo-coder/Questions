@@ -15,9 +15,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddScoped<IQuestionServiceses, IQuestionService>();
 builder.Services.AddDbContext<QuestionDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("ConnetionString")));
-
-
+    options.UseNpgsql(builder.Configuration.GetConnectionString("ConnectionString")));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
