@@ -1,0 +1,6 @@
+@TestRand.UI_HostAddress = http://localhost:5170
+
+GET {{TestRand.UI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
