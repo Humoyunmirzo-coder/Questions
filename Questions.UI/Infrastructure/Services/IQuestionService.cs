@@ -83,7 +83,6 @@ namespace Infrastructure.Services
             try
             {
 
-
                 var question = await _questionDbContext.Questions.ToListAsync();
 
                 var options = await _questionDbContext.Options.ToListAsync();
