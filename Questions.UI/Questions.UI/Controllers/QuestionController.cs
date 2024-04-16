@@ -92,8 +92,9 @@ namespace Questions.UI.Controllers
             }
 
             var response = await _questionServices.CreateQuestion(shuffledQuestions);
+
   
-            return Ok(new Response<List<Domain.Models.Questions>>(true, "Savollar muvaffaqiyatli yaratildi va saqlandi", shuffledQuestions));
+            return Ok(new Response<List<Domain.Models.Questions>>(true, "Saccessfuly and save ", shuffledQuestions));
         }
 
 
